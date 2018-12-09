@@ -3,7 +3,7 @@ import os
 #from datetime import datetime
 from myMarshmallow import Architecture, ArchitectureSchema
 import json
-#from secrets import SMARTSHEET_TOKEN
+from secrets import SMARTSHEET_TOKEN
 import requests
 
 #can't seem to get wsgi to accept environment var
