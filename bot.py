@@ -7,10 +7,12 @@ import requests
 
 bot_email = "SpiffyMcSpiff@webex.bot"
 bot_name = "SpiffyMcSpiff"
+bearer = BOT_TOKEN
+bat_signal = "https://upload.wikimedia.org/wikipedia/en/c/c6/Bat-signal_1989_film.jpg"
 
 url = "https://api.ciscospark.com/v1/messages"
 headers = {
-    'Authorization': "Bearer " + BOT_TOKEN,
+    'Authorization': "Bearer " + bearer,
     'Content-Type': "application/json",
     'cache-control': "no-cache"
 }
@@ -37,13 +39,8 @@ def index():
             print(key, ":", value)
         print("\n\n\n")
        
-   #    sendmsg(roomID)
-        command = gettext(text).lower()
-
-        if command == "spiff":
-            sendmsg(roomID, "Current SPIFFS are:")
-        else:
-            return "false"
+        sendmsg(roomID)
+        print(gettext(text))
 
         return 'JSON posted'
     else:
@@ -51,7 +48,7 @@ def index():
 #------------------------------------------#
 
 
-def sendmsg(space, message):
+def sendmsg(space):
     print("\nEntering sendmsg\n")
     print("{\r\n")
 
@@ -64,7 +61,7 @@ def sendmsg(space, message):
 
 
     payload = {"roomId": space,
-           "text": message}
+           "text": "Xu Mai"}
 
 
 #    headers = {
