@@ -338,23 +338,31 @@ def markdown_msg(tech_list):
 
 def markdown_msg(tech_list):
     message_format = ""
-    message_format += ("**{}**".format(tech_list["bullet"]))
+    message_format += ("* **{}**".format(tech_list["bullet"]))
     if bool(tech_list["bLink"]):
-        message_format += ("* - [LINK]({})\n".format(tech_list["bLink"]))
+        message_format += ("- [LINK]({})  ".format(tech_list["bLink"]))
     else:
-        message_format +=("\n")   
+        message_format +=(" \n")   
     x = 1
-    while x <5:
+    var = True
+    while x <5 and var:
         if bool(tech_list["subBullet{}".format(x)]):
 #           print (tech_list["subBullet{}".format(x)])
-            message_format += ("* {}".format(tech_list["subBullet{}".format(x)]))
-                         
+            if x == 1:
+                message_format += ("\n    * {}".format(tech_list["subBullet{}".format(x)]))
+            else:
+                message_format += ("    * {}  \n".format(tech_list["subBullet{}".format(x)]))            
         if tech_list["sb{}Link".format(x)] != "":
 #           print (tech_list["sb{}Link".format(x)])
-            message_format += (" - [LINK]({})".format(tech_list["sb{}Link".format(x)]))
-          
-        message_format += ("  \n\n")        
+            if x == 1:
+                message_format += (" - [LINK]({})  \n".format(tech_list["sb{}Link".format(x)]))
+            else:
+                message_format += (" - [LINK]({})".format(tech_list["sb{}Link".format(x)])) 
+        #else:
+        #    message_format += ("asdf")
+        #    var = False        
         x +=1
+    message_format += ("\n")
     return message_format
 
 

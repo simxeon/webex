@@ -239,27 +239,29 @@ def get_ss_parsed(archSelect):
 
 #print (len(get_ss_parsed("DC")))
 
-print ("\n")
+
 
 def markdown_msg(tech_list):
     message_format = ""
     message_format += ("**{}**".format(tech_list["bullet"]))
     if bool(tech_list["bLink"]):
-        message_format += ("* - [LINK]({}) \n".format(tech_list["bLink"]))
+        message_format += ("- [LINK]({})  ".format(tech_list["bLink"]))
     else:
         message_format +=(" \n")   
     x = 1
-    while x <5:
+    var = True
+    while x <5 and var:
         if bool(tech_list["subBullet{}".format(x)]):
 #           print (tech_list["subBullet{}".format(x)])
-            message_format += ("* {} \n".format(tech_list["subBullet{}".format(x)]))
-                         
+            message_format += ("* {}  \n".format(tech_list["subBullet{}".format(x)]))           
         if tech_list["sb{}Link".format(x)] != "":
 #           print (tech_list["sb{}Link".format(x)])
-            message_format += (" - [LINK]({})".format(tech_list["sb{}Link".format(x)]))
-          
-#        message_format += ("  \n")        
+            message_format += (" - [LINK]({})".format(tech_list["sb{}Link".format(x)])) 
+        #else:
+        #    message_format += ("asdf")
+        #    var = False        
         x +=1
+    message_format += ("\n")
     return message_format
 
 def get_message_format(text):
@@ -293,7 +295,7 @@ def get_message_format(text):
 
 
 def get_arch_info(arch):
-    news = "## News\n"
+    news = "## News  \n"
     events = "## Events\n"
     demo = "## Demostrations \n"
     services = "## Services\n"
@@ -330,6 +332,7 @@ def get_arch_info(arch):
     return combined
 
 
-print (get_arch_info("EN"))
+variable = get_arch_info("EN")
+print (variable)
 
 print("\n\n----------------------------------")
