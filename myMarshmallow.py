@@ -82,7 +82,50 @@ class EventSchema(Schema):
     def createEvent(self, data):
         return Event(**data) 
 
+class areaEvents(object):
+    def __init__(self,amcID,eventName,area,eventDate,status,quarter,city,state,arch,vertical,eventType,lead,segment, localContact, eventLead,comment,regReport,regReportPass,url ):
+        
+        self.amcID      = amcID
+        self.eventName  = eventName
+        self.area       = area
+        self.eventDate  = eventDate     
+        self.status     = status
+        self.quarter    = quarter
+        self.city       = city    
+        self.state      = state
+        self.arch       = arch    
+        self.vertical   = vertical
+        self.eventType  = eventType
+        self.lead       = lead
+        self.segment    = segment
+        self.localContact = localContact
+        self.eventLead  = eventLead
+        self.comment    = comment
+        self.regReport  = regReport
+        self.regReportPass = regReportPass
+        self.url        = url  
 
+class areaEventSchema(Schema):
+    amcID           = fields.String()
+    eventName       = fields.String()
+    area            = fields.String()
+    eventDate       = fields.String()
+    status          = fields.String()
+    quarter         = fields.String()
+    city            = fields.String()
+    state           = fields.String()
+    arch            = fields.String()
+    vertical        = fields.String()
+    eventType       = fields.String()
+    comment         = fields.String()
+    lead            = fields.String()
+    segment         = fields.String()
+    localContact    = fields.String()
+    eventLead       = fields.String()
+    regReport       = fields.String()
+    regReportPass   = fields.String()
+    url             = fields.String()
+    
 
 #ss_dict = {'date':date,'internal':internal,'category':category,etc}
 #schema = ArchitectureSchema()
